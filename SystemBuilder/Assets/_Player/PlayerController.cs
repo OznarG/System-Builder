@@ -22,6 +22,15 @@ public class PlayerController : MonoBehaviour
         moveInput = context.ReadValue<Vector2>();
         Debug.Log($"Move Input: {moveInput}");
     }
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        Debug.Log($"Jumping: {context.performed} - Is Grounded: {controller.isGrounded}");
+        if(context.performed && controller.isGrounded)
+        {
+            Debug.Log("We are Supposed to jump");
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

@@ -578,6 +578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 845194031}
   - component: {fileID: 845194033}
+  - component: {fileID: 845194035}
   - component: {fileID: 845194030}
   - component: {fileID: 845194029}
   - component: {fileID: 845194028}
@@ -739,6 +740,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: bc81a385-31c7-4c19-9e64-4200d4727da9
     m_ActionName: 'GamePlay/Jump[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4709fbb5-dfd2-417a-8f49-7c8bcb85d6d2
+    m_ActionName: 'GamePlay/Look[/Mouse/delta,/Touchscreen/delta]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aa4284a1-41b5-482d-888a-5e3314204631
+    m_ActionName: 'GamePlay/Sprint[/Keyboard/leftShift]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: GamePlay
@@ -756,6 +765,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5cef093b2b37964aadb385806d6a03d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxSpeed: 3.5
+  MoveInput: {x: 0, y: 0}
+  LookInput: {x: 0, y: 0}
+  controller: {fileID: 845194034}
+  fpCamera: {fileID: 1047197725}
 --- !u!143 &845194034
 CharacterController:
   m_ObjectHideFlags: 0
@@ -781,6 +795,18 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &845194035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845194027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c0e5a23db87964085aa09f237a3928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1047197723
 GameObject:
   m_ObjectHideFlags: 0

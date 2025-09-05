@@ -766,6 +766,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxSpeed: 3.5
+  LookSensitivity: {x: 0.1, y: 0.1}
+  PitchLimit: 85
+  currentPitch: 0
   MoveInput: {x: 0, y: 0}
   LookInput: {x: 0, y: 0}
   controller: {fileID: 845194034}

@@ -13,6 +13,13 @@ public class PlayerController : MonoBehaviour
     public Vector3 CurrentVelocity {  get; private set; }
     public float CurrentSpeed { get; private set; }
 
+    public bool Sprinting
+    {
+        get
+        {
+            return SprintInput && CurrentSpeed > 0.1f;
+        }
+    }
 
     [Header("Looking Parameters")]
     public Vector2 LookSensitivity = new Vector2(0.1f, 0.1f);
@@ -27,6 +34,18 @@ public class PlayerController : MonoBehaviour
         set
         {
             currentPitch = Mathf.Clamp(value, -PitchLimit, PitchLimit);
+        }
+    }
+    [Header("Camera Parameters")]
+    [SerializeField] float CameraNormalFOV = 60f;
+    [SerializeField] float CameraSprintFOV = 80f;
+    [SerializeField] float CameraFOVSmoothing = 1f;
+
+    float TargetCameraFOV
+    {
+        get
+        {
+            return Sprinting ? CameraSprintFOV : CameraNormalFOV;
         }
     }
 
@@ -51,6 +70,7 @@ public class PlayerController : MonoBehaviour
     {
         MoveUpdate();
         LookUpdate();
+        CameraUpdate();
     }
     #region Methods
 
@@ -98,5 +118,17 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.up * input.x);
     }
 
+    void CameraUpdate()
+    {
+        float targetFOV = CameraNormalFOV;
+        if (Sprinting)
+        {
+            float speedRatio = CurrentSpeed / SprintSpeed;
+
+            targetFOV = Mathf.Lerp(CameraNormalFOV, CameraSprintFOV, speedRatio);
+        }
+
+        fpCamera.Lens.FieldOfView = Mathf.Lerp(fpCamera.Lens.FieldOfView, targetFOV, CameraFOVSmoothing * Time.deltaTime);
+    }
     #endregion
 }

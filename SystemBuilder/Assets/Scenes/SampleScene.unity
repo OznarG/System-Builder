@@ -695,13 +695,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5cef093b2b37964aadb385806d6a03d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 3.5
   Acceleration: 15
+  WalkSpeed: 3.5
+  SprintSpeed: 8
   LookSensitivity: {x: 0.1, y: 0.1}
   PitchLimit: 85
   currentPitch: 0
+  CameraNormalFOV: 60
+  CameraSprintFOV: 70
+  CameraFOVSmoothing: 3
   MoveInput: {x: 0, y: 0}
   LookInput: {x: 0, y: 0}
+  SprintInput: 0
   controller: {fileID: 845194034}
   fpCamera: {fileID: 1047197725}
 --- !u!143 &845194034

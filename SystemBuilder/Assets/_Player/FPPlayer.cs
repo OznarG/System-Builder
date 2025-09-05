@@ -1,16 +1,27 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerController))]
 public class FPPlayer : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    [Header("Components")]
+    [SerializeField] PlayerController playerController;
+    InputAction inp;
+  
+    void OnMove(InputValue value)
     {
-        
+        playerController.MoveInput = value.Get<Vector2>();
+        Debug.Log("hi");
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnLook(InputValue value)
     {
-        
+        playerController.LookInput = value.Get<Vector2>();
+    }
+
+    private void OnValidate()
+    {
+        if(playerController  == null) playerController = GetComponent<PlayerController>();
     }
 }

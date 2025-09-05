@@ -19,9 +19,19 @@ public class FPPlayer : MonoBehaviour
     {
         playerController.LookInput = value.Get<Vector2>();
     }
-
+    void OnSprint(InputValue value)
+    {
+        playerController.SprintInput = value.isPressed;
+    }
     private void OnValidate()
     {
         if(playerController  == null) playerController = GetComponent<PlayerController>();
+    }
+
+
+    private void Start()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

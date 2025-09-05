@@ -5,9 +5,11 @@ using Unity.Cinemachine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Parameters")]
-    public float MaxSpeed = 3.5f;
+    public float MaxSpeed => SprintInput? SprintSpeed : WalkSpeed;
     public float Acceleration = 15f;
 
+    [SerializeField] float WalkSpeed = 3.5f;
+    [SerializeField] float SprintSpeed = 8f;
     public Vector3 CurrentVelocity {  get; private set; }
     public float CurrentSpeed { get; private set; }
 
@@ -31,6 +33,7 @@ public class PlayerController : MonoBehaviour
     [Header("Inputs")]
     public Vector2 MoveInput;
     public Vector2 LookInput;
+    public bool SprintInput;
 
     [Header("Component")]
     [SerializeField] CharacterController controller;
@@ -87,7 +90,7 @@ public class PlayerController : MonoBehaviour
         Vector2 input = new Vector2(LookInput.x * LookSensitivity.x, LookInput.y * LookSensitivity.y);
 
         //Looking Up or Right
-        CurrentPitch = input.y;
+        CurrentPitch -= input.y;
 
         fpCamera.transform.localRotation = Quaternion.Euler(CurrentPitch, 0f, 0f);
 

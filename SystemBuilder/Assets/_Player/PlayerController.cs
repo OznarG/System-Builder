@@ -10,9 +10,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float WalkSpeed = 3.5f;
     [SerializeField] float SprintSpeed = 8f;
-    public Vector3 CurrentVelocity {  get; private set; }
-    public float CurrentSpeed { get; private set; }
 
+    [Space(15)]
+    [Tooltip("This is how high the character can jump.")]
+    [SerializeField] float JumpHeight = 2f;
     public bool Sprinting
     {
         get
@@ -48,6 +49,16 @@ public class PlayerController : MonoBehaviour
             return Sprinting ? CameraSprintFOV : CameraNormalFOV;
         }
     }
+    [Header("Physics Parameters")]
+    [SerializeField] float GravityScale = 3f;
+
+    public float VerticalVelocity = 0f;
+
+    public Vector3 CurrentVelocity {  get; private set; }
+    public float CurrentSpeed { get; private set; }
+
+    public bool IsGrounded => controller.isGrounded;
+
 
     [Header("Inputs")]
     public Vector2 MoveInput;
@@ -96,10 +107,17 @@ public class PlayerController : MonoBehaviour
         {
             CurrentVelocity = Vector3.MoveTowards(CurrentVelocity, Vector3.zero, Acceleration * Time.deltaTime);    
         }
+        if(IsGrounded && VerticalVelocity <= 0.01f)
+        {
+            VerticalVelocity = -3;
+        }
+        else
+        {
+            VerticalVelocity += Physics.gravity.y * GravityScale * Time.deltaTime;
+        }
 
-        float verticalVelocity = Physics.gravity.y * 20f * Time.deltaTime;
 
-        Vector3 fullVelocity = new Vector3(CurrentVelocity.x, verticalVelocity, CurrentVelocity.z);
+        Vector3 fullVelocity = new Vector3(CurrentVelocity.x, VerticalVelocity, CurrentVelocity.z);
 
         controller.Move(fullVelocity * Time.deltaTime);
 

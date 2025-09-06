@@ -28,6 +28,13 @@ public class FPPlayer : MonoBehaviour
         if(playerController  == null) playerController = GetComponent<PlayerController>();
     }
 
+    void OnJump(InputValue value)
+    {
+        if(value.isPressed)
+        {
+            playerController.TryJump();
+        }
+    }
 
     private void Start()
     {

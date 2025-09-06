@@ -1,5 +1,6 @@
 using UnityEngine;
 using Unity.Cinemachine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -14,6 +15,9 @@ public class PlayerController : MonoBehaviour
     [Space(15)]
     [Tooltip("This is how high the character can jump.")]
     [SerializeField] float JumpHeight = 2f;
+
+    private int timesJumped = 0;
+    [SerializeField] int JumpTimes = 1;
     public bool Sprinting
     {
         get
@@ -21,6 +25,9 @@ public class PlayerController : MonoBehaviour
             return SprintInput && CurrentSpeed > 0.1f;
         }
     }
+
+
+
 
     [Header("Looking Parameters")]
     public Vector2 LookSensitivity = new Vector2(0.1f, 0.1f);
@@ -57,6 +64,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 CurrentVelocity {  get; private set; }
     public float CurrentSpeed { get; private set; }
 
+    private bool wasGrounded = false;
     public bool IsGrounded => controller.isGrounded;
 
 
@@ -69,7 +77,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CharacterController controller;
     [SerializeField] CinemachineCamera fpCamera;
 
-
+    [Header("Events")]
+    public UnityEvent Landed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -82,6 +91,13 @@ public class PlayerController : MonoBehaviour
         MoveUpdate();
         LookUpdate();
         CameraUpdate();
+
+        if(!wasGrounded && IsGrounded)
+        {
+            timesJumped = 0;
+            Landed?.Invoke();
+        }
+        wasGrounded = IsGrounded;
     }
     #region Methods
 
@@ -119,7 +135,12 @@ public class PlayerController : MonoBehaviour
 
         Vector3 fullVelocity = new Vector3(CurrentVelocity.x, VerticalVelocity, CurrentVelocity.z);
 
-        controller.Move(fullVelocity * Time.deltaTime);
+        CollisionFlags flags =  controller.Move(fullVelocity * Time.deltaTime);
+        if((flags & CollisionFlags.Above) != 0 && VerticalVelocity > 0.01f)
+        {
+            Debug.Log("Hit Something above!");
+            VerticalVelocity = 0f;
+        }
 
         CurrentSpeed = CurrentVelocity.magnitude;
     }
@@ -147,6 +168,16 @@ public class PlayerController : MonoBehaviour
         }
 
         fpCamera.Lens.FieldOfView = Mathf.Lerp(fpCamera.Lens.FieldOfView, targetFOV, CameraFOVSmoothing * Time.deltaTime);
+    }
+
+    public void TryJump()
+    {
+        if (JumpTimes <= timesJumped && VerticalVelocity > 0.01f)
+        {
+            return;
+        }
+        VerticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Physics.gravity.y * GravityScale);
+        timesJumped++;
     }
     #endregion
 }

@@ -5,6 +5,9 @@ using UnityEngine.Events;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+    [Header("Components")]
+    [SerializeField] Weapon weapon;
+
     //Varibles used for Movements Mainly
     [Header("Movement Parameters")]                                                      //---------------------------------//
     //This Set the velocity based if is sprintign or walking
@@ -105,7 +108,7 @@ public class PlayerController : MonoBehaviour
         wasGrounded = IsGrounded;
         if (CanShoot)
         {
-            Debug.Log("Bang Bang :V");
+            weapon.Use();
         }
     }
     #region Methods

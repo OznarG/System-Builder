@@ -5,19 +5,24 @@ using UnityEngine.Events;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [Header("Movement Parameters")]
+    //Varibles used for Movements Mainly
+    [Header("Movement Parameters")]                                                      //---------------------------------//
+    //This Set the velocity based if is sprintign or walking
     public float MaxSpeed => SprintInput? SprintSpeed : WalkSpeed;
     public float Acceleration = 15f;
 
     [SerializeField] float WalkSpeed = 3.5f;
     [SerializeField] float SprintSpeed = 8f;
 
+    //Space sets space in the inspector and ToolTip shows message when shadowed by the cursor
     [Space(15)]
     [Tooltip("This is how high the character can jump.")]
     [SerializeField] float JumpHeight = 2f;
 
     private int timesJumped = 0;
     [SerializeField] int JumpTimes = 1;
+    //this return that the player is sprinting only if is moving and the input is true because it will be used with FOV and 
+    //you don't want the camera moving while standign right?
     public bool Sprinting
     {
         get
@@ -27,15 +32,14 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
-
-    [Header("Looking Parameters")]
+    [Header("Looking Parameters")]                                                      //---------------------------------//
     public Vector2 LookSensitivity = new Vector2(0.1f, 0.1f);
 
+    //How low or high the head can twist
     public float PitchLimit = 85f;
 
     [SerializeField] float currentPitch = 0f;
-
+    //Make sure the value is never set above
     public float CurrentPitch
     {
         get => currentPitch;
@@ -44,7 +48,8 @@ public class PlayerController : MonoBehaviour
             currentPitch = Mathf.Clamp(value, -PitchLimit, PitchLimit);
         }
     }
-    [Header("Camera Parameters")]
+
+    [Header("Camera Parameters")]                                                      //---------------------------------//
     [SerializeField] float CameraNormalFOV = 60f;
     [SerializeField] float CameraSprintFOV = 80f;
     [SerializeField] float CameraFOVSmoothing = 1f;
@@ -56,28 +61,28 @@ public class PlayerController : MonoBehaviour
             return Sprinting ? CameraSprintFOV : CameraNormalFOV;
         }
     }
-    [Header("Physics Parameters")]
+
+    [Header("Physics Parameters")]                                                      //---------------------------------//
     [SerializeField] float GravityScale = 3f;
-
     public float VerticalVelocity = 0f;
-
     public Vector3 CurrentVelocity {  get; private set; }
     public float CurrentSpeed { get; private set; }
-
     private bool wasGrounded = false;
     public bool IsGrounded => controller.isGrounded;
 
 
-    [Header("Inputs")]
+    [Header("Inputs")]                                                      //---------------------------------//
     public Vector2 MoveInput;
     public Vector2 LookInput;
     public bool SprintInput;
 
-    [Header("Component")]
+    public bool CanShoot = false;
+
+    [Header("Component")]                                                      //---------------------------------//
     [SerializeField] CharacterController controller;
     [SerializeField] CinemachineCamera fpCamera;
 
-    [Header("Events")]
+    [Header("Events")]                                                        //---------------------------------//
     public UnityEvent Landed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -98,6 +103,10 @@ public class PlayerController : MonoBehaviour
             Landed?.Invoke();
         }
         wasGrounded = IsGrounded;
+        if (CanShoot)
+        {
+            Debug.Log("Bang Bang :V");
+        }
     }
     #region Methods
 
@@ -111,10 +120,11 @@ public class PlayerController : MonoBehaviour
 
     void MoveUpdate()
     {
+        //Move input.y is for W and S since they are set up and down
         Vector3 motion = transform.forward * MoveInput.y + transform.right * MoveInput.x;
         motion.y = 0f;
         motion.Normalize();
-
+        //if is moving then aceletare/lerp to that velocity
         if(motion.sqrMagnitude >= 0.01f)
         {
             CurrentVelocity = Vector3.MoveTowards(CurrentVelocity, motion * MaxSpeed, Acceleration * Time.deltaTime);
@@ -156,7 +166,6 @@ public class PlayerController : MonoBehaviour
         //Looking Left and Right
         transform.Rotate(Vector3.up * input.x);
     }
-
     void CameraUpdate()
     {
         float targetFOV = CameraNormalFOV;
@@ -169,7 +178,6 @@ public class PlayerController : MonoBehaviour
 
         fpCamera.Lens.FieldOfView = Mathf.Lerp(fpCamera.Lens.FieldOfView, targetFOV, CameraFOVSmoothing * Time.deltaTime);
     }
-
     public void TryJump()
     {
         if (JumpTimes <= timesJumped && VerticalVelocity > 0.01f)
@@ -179,5 +187,6 @@ public class PlayerController : MonoBehaviour
         VerticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Physics.gravity.y * GravityScale);
         timesJumped++;
     }
+
     #endregion
 }

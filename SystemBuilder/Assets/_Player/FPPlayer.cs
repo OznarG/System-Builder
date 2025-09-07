@@ -41,6 +41,11 @@ public class FPPlayer : MonoBehaviour
             playerController.TryJump();
         }
     }
+
+    void OnFire(InputValue value)
+    {
+        playerController.CanShoot = value.isPressed;
+    }
     #endregion
 
 }

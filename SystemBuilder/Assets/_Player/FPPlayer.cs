@@ -7,14 +7,20 @@ public class FPPlayer : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] PlayerController playerController;
-    InputAction inp;
   
+    private void Start()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+
+    #region Input Functions    
     void OnMove(InputValue value)
     {
         playerController.MoveInput = value.Get<Vector2>();
         Debug.Log("hi");
     }
-
     void OnLook(InputValue value)
     {
         playerController.LookInput = value.Get<Vector2>();
@@ -35,10 +41,6 @@ public class FPPlayer : MonoBehaviour
             playerController.TryJump();
         }
     }
+    #endregion
 
-    private void Start()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
 }

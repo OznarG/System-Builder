@@ -12,8 +12,11 @@ public class FireArm : Weapon
 
 
     float shootRate = 0.2f;
+    float rafagaCounter = 10;
+    bool onRafagaCoolDown;
+    bool shoothing;
 
-    public override bool CanUse(float timer)
+    public override bool CanUse(float timer, bool state)
     {
         switch(shootateType)
         {
@@ -26,7 +29,7 @@ public class FireArm : Weapon
                 return timer > shootRate;
 
             case ShootMode.SEMI_AUTO:
-                break;
+                return !state;     
             default:
                 break;
         }

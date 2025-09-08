@@ -25,5 +25,5 @@ namespace EnumsWeapon
 public abstract class Weapon : MonoBehaviour
 {
     public abstract void Use();
-    public abstract bool CanUse(float timer);
+    public abstract bool CanUse(float timer, bool state);
 }

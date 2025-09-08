@@ -44,7 +44,8 @@ public class FPPlayer : MonoBehaviour
 
     void OnFire(InputValue value)
     {
-        playerController.CanShoot = value.isPressed;
+        playerController.shootPressed = value.isPressed;
+
     }
     #endregion
 

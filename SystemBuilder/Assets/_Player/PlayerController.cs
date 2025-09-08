@@ -78,8 +78,9 @@ public class PlayerController : MonoBehaviour
     public Vector2 MoveInput;
     public Vector2 LookInput;
     public bool SprintInput;
+    public bool hasFired;
 
-    public bool CanShoot = false;
+    public bool shootPressed = false;
 
     [Header("Component")]                                                      //---------------------------------//
     [SerializeField] CharacterController controller;
@@ -108,11 +109,14 @@ public class PlayerController : MonoBehaviour
             Landed?.Invoke();
         }
         wasGrounded = IsGrounded;
-        if (CanShoot && weapon.CanUse(timer))
+
+        if (shootPressed && weapon.CanUse(timer, hasFired))
         {
             weapon.Use();
+            hasFired = true;
             timer = 0;
         }
+        hasFired = shootPressed;        
     }
     #region Methods
 

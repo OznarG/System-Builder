@@ -109,14 +109,7 @@ public class PlayerController : MonoBehaviour
             Landed?.Invoke();
         }
         wasGrounded = IsGrounded;
-
-        if (shootPressed && weapon.CanUse(timer, hasFired))
-        {
-            weapon.Use();
-            hasFired = true;
-            timer = 0;
-        }
-        hasFired = shootPressed;        
+        ItemWeaponUse();
     }
     #region Methods
 
@@ -127,7 +120,24 @@ public class PlayerController : MonoBehaviour
             controller = GetComponent<CharacterController>();
         }
     }
+    void ItemWeaponUse()
+    {
+        if (shootPressed && weapon.CanUse(timer, hasFired))
+        {
+            weapon.Use();
+            hasFired = true;
+            timer = 0;
+        }
+        hasFired = shootPressed;
 
+    }
+    public void changeWeaponRate()
+    {
+        if (weapon is FireArm arm)
+        {
+            arm.ChangeShootRate();
+        }
+    }
     void MoveUpdate()
     {
         //Move input.y is for W and S since they are set up and down

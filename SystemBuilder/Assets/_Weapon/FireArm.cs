@@ -43,6 +43,20 @@ public class FireArm : Weapon
 
     public void ChangeShootRate()
     {
+        switch (shootateType)
+        {
+            case ShootMode.AUTOMATIC:
+                shootateType = ShootMode.SEMI_AUTO;
+                break;
+            case ShootMode.RAFAGA:
+                shootateType = ShootMode.AUTOMATIC;
+                break;
+            case ShootMode.SEMI_AUTO:
+                shootateType = ShootMode.RAFAGA;
+                break;
+            default:
+                break;
 
+        }
     }
 }

@@ -585,6 +585,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bce59ef193c514439de9d9e6d569533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponType: 0
+  fireArmType: 1
+  shootateType: 1
   automaticAvailable: 1
   semi_automaticAvailable: 1
   rafagaAvailable: 1

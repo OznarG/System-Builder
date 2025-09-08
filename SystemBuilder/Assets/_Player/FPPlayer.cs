@@ -47,6 +47,10 @@ public class FPPlayer : MonoBehaviour
         playerController.shootPressed = value.isPressed;
 
     }
+    void OnSwitchRate(InputValue value)
+    {
+        playerController.changeWeaponRate();
+    }
     #endregion
 
 }

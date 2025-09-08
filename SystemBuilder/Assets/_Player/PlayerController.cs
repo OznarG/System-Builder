@@ -94,8 +94,10 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
+    float timer;
     void Update()
     {
+        timer +=  Time.deltaTime;
         MoveUpdate();
         LookUpdate();
         CameraUpdate();
@@ -106,9 +108,10 @@ public class PlayerController : MonoBehaviour
             Landed?.Invoke();
         }
         wasGrounded = IsGrounded;
-        if (CanShoot)
+        if (CanShoot && weapon.CanUse(timer))
         {
             weapon.Use();
+            timer = 0;
         }
     }
     #region Methods

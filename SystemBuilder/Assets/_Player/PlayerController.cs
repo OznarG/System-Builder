@@ -126,6 +126,7 @@ public class PlayerController : MonoBehaviour
         if (shootPressed && weapon.CanUse(timer, hasFired))
         {
             weapon.Use();
+            animator.SetTrigger("Attack");
             hasFired = true;
             timer = 0;
         }

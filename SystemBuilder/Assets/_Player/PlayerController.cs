@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] Weapon weapon;
+    [SerializeField] Animator animator;
 
     //Varibles used for Movements Mainly
     [Header("Movement Parameters")]                                                      //---------------------------------//
@@ -173,6 +174,7 @@ public class PlayerController : MonoBehaviour
         }
 
         CurrentSpeed = CurrentVelocity.magnitude;
+        animator.SetFloat("Speed", CurrentSpeed);
     }
     void LookUpdate()
     {

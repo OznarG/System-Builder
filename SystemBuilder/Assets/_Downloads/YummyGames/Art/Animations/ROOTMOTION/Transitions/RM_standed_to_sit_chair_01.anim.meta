@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a3c4abf31eca00f4198479b1da481144
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248305
+  packageName: Survival Mocap Animations
+  packageVersion: 1.0
+  assetPath: Assets/YummyGames/Art/Animations/ROOTMOTION/Transitions/RM_standed_to_sit_chair_01.anim
+  uploadId: 566541

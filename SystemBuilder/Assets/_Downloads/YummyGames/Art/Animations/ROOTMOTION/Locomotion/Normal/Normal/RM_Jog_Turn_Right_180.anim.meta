@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ce5b26f32566d754a96a40a892661b52
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248305
+  packageName: Survival Mocap Animations
+  packageVersion: 1.0
+  assetPath: Assets/YummyGames/Art/Animations/ROOTMOTION/Locomotion/Normal/Normal/RM_Jog_Turn_Right_180.anim
+  uploadId: 566541

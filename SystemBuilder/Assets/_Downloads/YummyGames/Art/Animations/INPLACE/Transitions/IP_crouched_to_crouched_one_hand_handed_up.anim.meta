@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a1c61f2ee20c7fb46965284e6965b0b6
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248305
+  packageName: Survival Mocap Animations
+  packageVersion: 1.0
+  assetPath: Assets/YummyGames/Art/Animations/INPLACE/Transitions/IP_crouched_to_crouched_one_hand_handed_up.anim
+  uploadId: 566541

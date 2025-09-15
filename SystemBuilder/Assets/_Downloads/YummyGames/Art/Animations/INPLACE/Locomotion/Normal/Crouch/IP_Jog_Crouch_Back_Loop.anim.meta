@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6a5ccae001ecb7c47a49a4d139d7850c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248305
+  packageName: Survival Mocap Animations
+  packageVersion: 1.0
+  assetPath: Assets/YummyGames/Art/Animations/INPLACE/Locomotion/Normal/Crouch/IP_Jog_Crouch_Back_Loop.anim
+  uploadId: 566541

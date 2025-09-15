@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1eec0703d908aeb4a8c00cbd9c068d53
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248305
+  packageName: Survival Mocap Animations
+  packageVersion: 1.0
+  assetPath: Assets/YummyGames/Art/Animator_Controller/Some_Animations.controller
+  uploadId: 566541

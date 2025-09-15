@@ -175,6 +175,7 @@ public class PlayerController : MonoBehaviour
 
         CurrentSpeed = CurrentVelocity.magnitude;
         animator.SetFloat("Speed", CurrentSpeed);
+        Debug.Log(CurrentSpeed);
     }
     void LookUpdate()
     {

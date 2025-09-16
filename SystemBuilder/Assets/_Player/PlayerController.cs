@@ -99,18 +99,22 @@ public class PlayerController : MonoBehaviour
     float timer;
     void Update()
     {
-        timer +=  Time.deltaTime;
-        MoveUpdate();
-        LookUpdate();
-        CameraUpdate();
-
-        if(!wasGrounded && IsGrounded)
+        if(!GameManager.instance.isPaused)
         {
-            timesJumped = 0;
-            Landed?.Invoke();
+            timer += Time.deltaTime;
+            MoveUpdate();
+            LookUpdate();
+            CameraUpdate();
+
+            if (!wasGrounded && IsGrounded)
+            {
+                timesJumped = 0;
+                Landed?.Invoke();
+            }
+            wasGrounded = IsGrounded;
+            ItemWeaponUse();
         }
-        wasGrounded = IsGrounded;
-        ItemWeaponUse();
+
     }
     #region Methods
 
@@ -176,7 +180,7 @@ public class PlayerController : MonoBehaviour
 
         CurrentSpeed = CurrentVelocity.magnitude;
         animator.SetFloat("Speed", CurrentSpeed);
-        Debug.Log(CurrentSpeed);
+        //Debug.Log(CurrentSpeed);
     }
     void LookUpdate()
     {

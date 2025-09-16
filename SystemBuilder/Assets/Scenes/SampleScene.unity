@@ -1285,6 +1285,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &845194027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4070969962660685282, guid: d60af4e3c816c2c4684a53516c26bd02, type: 3}
+  m_PrefabInstance: {fileID: 2346116069993653735}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &907836631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,10 +1376,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 928072192}
+  - component: {fileID: 928072196}
   - component: {fileID: 928072195}
   - component: {fileID: 928072194}
   - component: {fileID: 928072193}
-  - component: {fileID: 928072196}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -1479,6 +1484,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eca8f71ed6781e4db1c1e9cc72413bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 845194027}
+  isPaused: 0
+  activeMenu: {fileID: 399065130}
+  pauseMenu: {fileID: 399065130}
+  playerInventory: {fileID: 1421556453}
 --- !u!1 &1224709135
 GameObject:
   m_ObjectHideFlags: 0

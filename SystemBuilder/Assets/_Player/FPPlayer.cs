@@ -16,6 +16,17 @@ public class FPPlayer : MonoBehaviour
 
 
     #region Input Functions    
+    void OnMenuOpen(InputValue value)
+    {
+        if(Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            GameManager.instance.ESCPressed();
+        }
+        else if(Keyboard.current.iKey.wasPressedThisFrame)
+        {
+            GameManager.instance.ToggleInventory();
+        }
+    }
     void OnMove(InputValue value)
     {
         playerController.MoveInput = value.Get<Vector2>();

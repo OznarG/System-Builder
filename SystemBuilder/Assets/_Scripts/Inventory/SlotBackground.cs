@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class SlotBackground : MonoBehaviour, IDropHandler
@@ -97,7 +98,7 @@ public class SlotBackground : MonoBehaviour, IDropHandler
 
         }
         //Maybe needs better why of doing this 
-        GameManager.instance.thirdPersonPlayerController.UpdateEquipSlot();
+        GameManager.instance.player.UpdateEquipSlot();
 
     }
     private void SwitchItemsLocation(Slot sourceSlot) /* NEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE BACK HERE    */
@@ -195,9 +196,9 @@ public class SlotBackground : MonoBehaviour, IDropHandler
         {
             transform.GetComponent<Image>().color = slotColor;
             //if is not selected do nothing, Set it white
-            if (GameManager.instance.thirdPersonPlayerController.currentWeapon != null)
+            if (GameManager.instance.player.currentWeapon != null)
             {
-                GameManager.instance.thirdPersonPlayerController.currentWeapon.SetActive(false);
+                GameManager.instance.player.currentWeapon.SetActive(false);
 
             }
 

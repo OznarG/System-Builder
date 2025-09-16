@@ -1,17 +1,28 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
     [Header("Player References")]
-    public GameObject player;
+    public FPPlayer player;
 
     [Header("----- Menus -----")]
     public bool isPaused;
     public GameObject activeMenu;
     public GameObject pauseMenu;
     public GameObject playerInventoryMenu;
+
+    [Header("----- Inventory Management -----")]
+    public GameObject previuslySelectedSlot = null;
+    public GameObject selectedSlot = null;
+    public Color backgroundColor;
+    public AudioSource inventoryAud;
+    public AudioClip pickup;
+
+    public Image crossHair;
 
     void Start()
     {

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(PlayerController))]
 public class FPPlayer : MonoBehaviour
@@ -7,14 +8,35 @@ public class FPPlayer : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] PlayerController playerController;
-  
+
+    [Header("Weapons")]
+    public GameObject currentWeapon;
+    public Collider currentCollider;
+    public GameObject[] playerWeapons;
+    public Collider[] weaponsColliders;
+    public Image equipOneImage;
+    public Image equipTwoImage;
+    public Slot equipSlotOne;
+    public Slot equipSlotTwo;
+    public int weaponIndex;
+
+    [Header("Inventories")]
+    public int currentBeltSelection;
+
+
     private void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-
+    #region Inventory Method
+    public void UpdateEquipSlot()
+    {
+        equipOneImage.sprite = equipSlotOne.GetItemIcon();
+        equipTwoImage.sprite = equipSlotTwo.GetItemIcon();
+    }
+    #endregion
     #region Input Functions    
     void OnMenuOpen(InputValue value)
     {

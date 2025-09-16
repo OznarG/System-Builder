@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         instance = this;
+        ToggleInventory();
+        ToggleInventory();
     }
 
     // Update is called once per frame

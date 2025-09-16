@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined;
             activeMenu = playerInventoryMenu;
         }
-        else if(isPaused && activeMenu != playerInventoryMenu)
+        else if(isPaused && activeMenu == playerInventoryMenu)
         {
             Time.timeScale = 1;
             isPaused = false;

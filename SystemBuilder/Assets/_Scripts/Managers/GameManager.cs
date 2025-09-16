@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Player References")]
     public FPPlayer player;
+    public Inventory playerInventoryScript;
 
     [Header("----- Menus -----")]
     public bool isPaused;

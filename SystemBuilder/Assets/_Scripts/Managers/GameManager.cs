@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
             Cursor.visible = cursorOn;
             Cursor.lockState = CursorLockMode.Confined;
             activeMenu = playerInventoryMenu;
+            activeMenu.SetActive(true);
         }
         else if(isPaused && activeMenu == playerInventoryMenu)
         {

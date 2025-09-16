@@ -242,7 +242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5791169770542010620}
   - component: {fileID: 3104229265707306861}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Military_Pants2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,7 +457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4619146386800812814}
   - component: {fileID: 6543326014308224896}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Military_Boots3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -842,13 +842,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4419922600098833930}
   - component: {fileID: 1720476913376454023}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Military_Cap1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4419922600098833930
 Transform:
   m_ObjectHideFlags: 0
@@ -1427,13 +1427,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4302958151812668168}
   - component: {fileID: 5280329831454159743}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Military_Head1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4302958151812668168
 Transform:
   m_ObjectHideFlags: 0
@@ -1588,13 +1588,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2715767468923357886}
   - component: {fileID: 6494923606642853986}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Military_Backpack1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2715767468923357886
 Transform:
   m_ObjectHideFlags: 0
@@ -2128,7 +2128,7 @@ Transform:
   m_GameObject: {fileID: 4436459258453748555}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00000005960463, y: 0.00000002107342, z: 0.00000006322026, w: 1}
-  m_LocalPosition: {x: 0, y: 0.697001, z: 0.08800006}
+  m_LocalPosition: {x: -0, y: 0.402, z: 0.002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2434,7 +2434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3873314064532433930}
   - component: {fileID: 5694437575515405337}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Military_Vest1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2583,7 +2583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6763551834212172440}
   - component: {fileID: 5834257166266136828}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Military_Vest1_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3184,7 +3184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7374951904207096943}
   - component: {fileID: 3290352920836265144}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Military_Shirt3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4017,13 +4017,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2097939511048148743}
   - component: {fileID: 326489425018940499}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Military_Backpack1_vest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2097939511048148743
 Transform:
   m_ObjectHideFlags: 0

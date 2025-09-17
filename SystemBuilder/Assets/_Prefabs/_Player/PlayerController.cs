@@ -233,6 +233,7 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(ray, out hit, distanceInteract, layerMaskInteractable))
         {
             interactableObject = hit.transform.gameObject;
+            interactableObject.GetComponent<Outline>().OutlineWidth = 8;
         }
         else
         {

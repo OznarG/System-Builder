@@ -10,10 +10,11 @@ public class PrevValidPlacement : MonoBehaviour
     // bitwise left shift opperator (<<) and bitwise and operator (&) ---> needs research
     private void OnTriggerEnter(Collider other)
     {
-        if(((1 << other.gameObject.layer) != 0))
+        if(((1 << other.gameObject.layer) & invalidLayers) != 0)
         {
             _colldingObjects.Add(other);
             IsValid = false;
+            Debug.Log(other);
         }
     }
 

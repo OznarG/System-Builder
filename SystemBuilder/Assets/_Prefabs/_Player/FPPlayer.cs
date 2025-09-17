@@ -92,7 +92,11 @@ public class FPPlayer : MonoBehaviour
             if(playerController.interactableObject != null)
             {
                 Iinteract obj = playerController.interactableObject.GetComponent<Iinteract>();
-                obj.Interact();
+                if(obj != null)
+                {
+                     obj.Interact();
+                }
+
             }
         }
     }

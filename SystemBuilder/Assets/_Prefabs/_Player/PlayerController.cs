@@ -53,6 +53,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+    [Header("Interaction")]
+    [SerializeField] int distanceInteract;
+    //Current object being looked at -> want to make it a script that returns a function for using.
+    public GameObject interactableObject;
+    [SerializeField] LayerMask layerMaskInteractable;
+
     [Header("Camera Parameters")]                                                      //---------------------------------//
     [SerializeField] float CameraNormalFOV = 60f;
     [SerializeField] float CameraSprintFOV = 80f;
@@ -113,6 +120,7 @@ public class PlayerController : MonoBehaviour
             }
             wasGrounded = IsGrounded;
             ItemWeaponUse();
+            LookingAt();
         }
 
     }
@@ -216,5 +224,21 @@ public class PlayerController : MonoBehaviour
         timesJumped++;
     }
 
+    void LookingAt()
+    {
+        
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, distanceInteract, layerMaskInteractable))
+        {
+            interactableObject = hit.transform.gameObject;
+        }
+        else
+        {
+            interactableObject = null;
+        }
+        
+    }
     #endregion
 }

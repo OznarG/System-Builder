@@ -1,11 +1,23 @@
 using UnityEngine;
 
-public class ItemPickUp : MonoBehaviour
+public class ItemPickUp : MonoBehaviour, Iinteract
 {
     [SerializeField] bool playerIn;
     [SerializeField] Item thisItem;
     [SerializeField] int amounToAdd;
 
+    public void Interact()
+    {
+        if (GameManager.instance.playerInventoryScript.AddItem(thisItem, thisItem.amountToAdd + amounToAdd))
+        {
+            //AudioManager.instance.PlaySFX(AudioManager.instance.pickUp);
+            Debug.Log("Added Item Function");
+            Destroy(gameObject);
+            
+        }
+    }
+
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && playerIn == false)
@@ -76,4 +88,5 @@ public class ItemPickUp : MonoBehaviour
 
         }
     }
+    */
 }

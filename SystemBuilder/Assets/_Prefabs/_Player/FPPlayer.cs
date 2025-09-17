@@ -84,6 +84,18 @@ public class FPPlayer : MonoBehaviour
     {
         playerController.changeWeaponRate();
     }
+
+    void OnInteract(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            if(playerController.interactableObject != null)
+            {
+                Iinteract obj = playerController.interactableObject.GetComponent<Iinteract>();
+                obj.Interact();
+            }
+        }
+    }
     #endregion
 
 }

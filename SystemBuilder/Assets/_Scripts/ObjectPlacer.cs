@@ -31,12 +31,28 @@ public class ObjectPlacer : MonoBehaviour
         }
     }
 
+    //This needs to be moved or replaced
+    void OnInteract(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            PlceObject();
+        }
+    }
+
     private void Update()
     {
         if(_inplacementMode)
         {
             UpdateCurrentPlacementPosition();
         }
+    }
+    private void PlceObject()
+    {
+        Quaternion rotation = Quaternion.Euler(0f, playerCamera.transform.eulerAngles.y, 0f);
+        Instantiate(placeableObjectPrefab, _currentPlacementPosition, rotation, transform);
+
+        ExitPlacementMode();
     }
     private void UpdateCurrentPlacementPosition()
     {
@@ -62,7 +78,7 @@ public class ObjectPlacer : MonoBehaviour
         Debug.Log("Entering Placement Mode");
 
         Quaternion rotation = Quaternion.Euler(0f, playerCamera.transform.eulerAngles.y, 0f);
-        _previewObject = Instantiate(previewObjectPrefab, _currentPlacementPosition, rotation);
+        _previewObject = Instantiate(previewObjectPrefab, _currentPlacementPosition, rotation, transform);
         _inplacementMode = true;    
     }
     
@@ -70,5 +86,7 @@ public class ObjectPlacer : MonoBehaviour
     {
         Debug.Log("Exiting Placement Mode");
         _inplacementMode = false;
+        Destroy(_previewObject);
+        _previewObject= null;
     }
 }

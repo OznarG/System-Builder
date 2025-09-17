@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int distanceInteract;
     //Current object being looked at -> want to make it a script that returns a function for using.
     public GameObject interactableObject;
+    private GameObject previousSelected;
     [SerializeField] LayerMask layerMaskInteractable;
 
     [Header("Camera Parameters")]                                                      //---------------------------------//
@@ -233,10 +234,16 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(ray, out hit, distanceInteract, layerMaskInteractable))
         {
             interactableObject = hit.transform.gameObject;
+            previousSelected = interactableObject;
             interactableObject.GetComponent<Outline>().OutlineWidth = 8;
         }
         else
         {
+            if(previousSelected != null)
+            {
+                previousSelected.GetComponent<Outline>().OutlineWidth = 0;
+                previousSelected = null;
+            }
             interactableObject = null;
         }
         

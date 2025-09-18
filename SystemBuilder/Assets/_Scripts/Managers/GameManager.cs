@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
 
     public Image crossHair;
 
+    [Header("---- Crafting and Building ----")]
+    public ObjectPlacer objctPlacer;
+
     void Start()
     {
         instance = this;

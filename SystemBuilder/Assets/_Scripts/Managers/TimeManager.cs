@@ -41,7 +41,6 @@ public class TimeManager : MonoBehaviour
             tempSeconds = 0;
         }
     }
-
     private void OnMinutesChange(int value)
     {
         //Debug.Log("Minutes Update");

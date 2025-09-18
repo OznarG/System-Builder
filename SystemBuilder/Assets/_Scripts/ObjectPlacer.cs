@@ -131,5 +131,11 @@ public class ObjectPlacer : MonoBehaviour
         previewMaterial.color = invalidColor;
         _valistBuildState = false;
     }
+
+    public void SetObjectTo(GameObject obj, GameObject objPreview)
+    {
+        placeableObjectPrefab = obj;
+        previewObjectPrefab = objPreview;
+    }
     #endregion
 }

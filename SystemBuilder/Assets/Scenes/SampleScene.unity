@@ -14244,8 +14244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d78b323a6b5614d9a4360f54b38e69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeableObjectPrefab: {fileID: 7997409109146511771, guid: 4b2f7378bffb5f94b9865b1a602dda56, type: 3}
-  previewObjectPrefab: {fileID: 6885274091908687120, guid: b5d56cf2de4e9754bb0e896d9c42358e, type: 3}
+  placeableObjectPrefab: {fileID: 3699079745832495409, guid: 122ea33873dc32e4a846e7e014eab607, type: 3}
+  previewObjectPrefab: {fileID: 1651079120073014550, guid: 83db8976a7dfc294eb047e63624f8f03, type: 3}
   playerCamera: {fileID: 330585545}
   placementSurfaceLayerMask:
     serializedVersion: 2

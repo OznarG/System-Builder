@@ -25,6 +25,13 @@ public class ObjectPlacer : MonoBehaviour
     private bool _valistBuildState = false;
 
     #region Inputs
+    void OnTESTTHREE(InputValue inputValue)
+    {
+        if(inputValue.isPressed)
+        {
+            GameManager.instance.ToggleBuilderMenu();
+        }
+    }
     void OnTESTKEY(InputValue value)
     {
         if(value.isPressed)

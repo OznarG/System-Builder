@@ -2,15 +2,11 @@ using UnityEngine;
 
 public class BuilderButton : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject preview;
+    [SerializeField] GameObject obj;
 
-    // Update is called once per frame
-    void Update()
+    public void SetPlacerObject()
     {
-        
+        GameManager.instance.objctPlacer.SetObjectTo(obj, preview);
     }
 }

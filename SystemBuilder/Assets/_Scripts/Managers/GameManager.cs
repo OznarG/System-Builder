@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using JetBrains.Annotations;
 
 public class GameManager : MonoBehaviour
 {
@@ -122,8 +123,34 @@ public class GameManager : MonoBehaviour
             //activeMenu = buttonsMenus.falseMenu;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Confined;
+        }     
+    }
+    public void ToggleBuilderMenu(bool cursorOn = true)
+    {
+        if (!isPaused)
+        {
+            isPaused = true;
+            Time.timeScale = 0;
+            Cursor.visible = cursorOn;
+            Cursor.lockState = CursorLockMode.Confined;
+            activeMenu = BuilderMenu;
+            activeMenu.SetActive(true);
+        }
+        else if (isPaused && activeMenu == BuilderMenu)
+        {
+            Time.timeScale = 1;
+            isPaused = false;
+            //Cursor.visible = false;
+            //Cursor.lockState = CursorLockMode.Locked;
+            if (activeMenu != null)
+            {
+                activeMenu.SetActive(false);
+            }
+
+            //activeMenu = buttonsMenus.falseMenu;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
-   
     #endregion
 }

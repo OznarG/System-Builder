@@ -6474,6 +6474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 834694683}
+  - component: {fileID: 834694687}
   - component: {fileID: 834694686}
   - component: {fileID: 834694685}
   - component: {fileID: 834694684}
@@ -6546,7 +6547,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 834694685}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 834694687}
+        m_TargetAssemblyTypeName: BuilderButton, Assembly-CSharp
+        m_MethodName: SetPlacerObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &834694685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6567,7 +6580,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: b4020a266324359479f8a4c9f6949930, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6585,6 +6598,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834694682}
   m_CullTransparentMesh: 1
+--- !u!114 &834694687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834694682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb43205e9befcbb498524e77e6413c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preview: {fileID: 6885274091908687120, guid: b5d56cf2de4e9754bb0e896d9c42358e, type: 3}
+  obj: {fileID: 7997409109146511771, guid: 4b2f7378bffb5f94b9865b1a602dda56, type: 3}
 --- !u!114 &845194043 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1244994267327173392, guid: d60af4e3c816c2c4684a53516c26bd02, type: 3}
@@ -6828,6 +6855,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 874244040}
+  - component: {fileID: 874244044}
   - component: {fileID: 874244043}
   - component: {fileID: 874244042}
   - component: {fileID: 874244041}
@@ -6900,7 +6928,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 874244042}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 874244044}
+        m_TargetAssemblyTypeName: BuilderButton, Assembly-CSharp
+        m_MethodName: SetPlacerObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &874244042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6921,7 +6961,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7ef310e40127bbb4ebae2bc4983c876d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6939,6 +6979,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874244039}
   m_CullTransparentMesh: 1
+--- !u!114 &874244044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874244039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb43205e9befcbb498524e77e6413c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preview: {fileID: 1651079120073014550, guid: 83db8976a7dfc294eb047e63624f8f03, type: 3}
+  obj: {fileID: 3699079745832495409, guid: 122ea33873dc32e4a846e7e014eab607, type: 3}
 --- !u!1 &887149517
 GameObject:
   m_ObjectHideFlags: 0
@@ -7622,8 +7676,8 @@ MonoBehaviour:
   activeMenu: {fileID: 399065130}
   pauseMenu: {fileID: 399065130}
   playerInventoryMenu: {fileID: 1421556453}
-  CraftingMenu: {fileID: 0}
-  BuilderMenu: {fileID: 0}
+  CraftingMenu: {fileID: 1267683151}
+  BuilderMenu: {fileID: 1657728232}
   previuslySelectedSlot: {fileID: 0}
   selectedSlot: {fileID: 0}
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
@@ -13749,7 +13803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1657728233
 RectTransform:
   m_ObjectHideFlags: 0

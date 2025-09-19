@@ -236,12 +236,22 @@ public class PlayerController : MonoBehaviour
             interactableObject = hit.transform.gameObject;
             previousSelected = interactableObject;
             interactableObject.GetComponent<Outline>().OutlineWidth = 8;
+            Iinteract interact = interactableObject.GetComponent<Iinteract>();
+            if (interact != null)
+            {
+                interact.ActionText();
+            }
         }
         else
         {
             if(previousSelected != null)
             {
                 previousSelected.GetComponent<Outline>().OutlineWidth = 0;
+                Iinteract interact = interactableObject.GetComponent<Iinteract>();
+                if (interact != null)
+                {
+                    interact.HideActionText();
+                }
                 previousSelected = null;
             }
             interactableObject = null;

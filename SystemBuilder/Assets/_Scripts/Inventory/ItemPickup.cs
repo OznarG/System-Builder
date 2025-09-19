@@ -6,6 +6,19 @@ public class ItemPickUp : MonoBehaviour, Iinteract
     [SerializeField] Item thisItem;
     [SerializeField] int amounToAdd;
 
+    #region Iinteract Methods
+    public void ActionText()
+    {
+        GameManager.instance.player.playerHUD.buttonsInfo[0].text = "E: To Pick";
+
+    }
+    public void HideActionText()
+    {
+        GameManager.instance.player.playerHUD.buttonsInfoBG[0].gameObject.SetActive(false);
+        GameManager.instance.player.playerHUD.buttonsInfoBG[1].gameObject.SetActive(false);
+        GameManager.instance.player.playerHUD.buttonsInfoBG[2].gameObject.SetActive(false);
+        GameManager.instance.player.playerHUD.buttonsInfoBG[3].gameObject.SetActive(false);
+    }
     public void Interact()
     {
         if (GameManager.instance.playerInventoryScript.AddItem(thisItem, thisItem.amountToAdd + amounToAdd))
@@ -16,7 +29,7 @@ public class ItemPickUp : MonoBehaviour, Iinteract
             
         }
     }
-
+    #endregion
     /*
     private void OnTriggerEnter(Collider other)
     {

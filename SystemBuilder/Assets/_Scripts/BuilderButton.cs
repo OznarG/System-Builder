@@ -8,5 +8,6 @@ public class BuilderButton : MonoBehaviour
     public void SetPlacerObject()
     {
         GameManager.instance.objctPlacer.SetObjectTo(obj, preview);
+        GameManager.instance.objctPlacer.EnterPlacementMode();
     }
 }

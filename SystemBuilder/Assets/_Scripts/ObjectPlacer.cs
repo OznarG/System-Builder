@@ -103,13 +103,16 @@ public class ObjectPlacer : MonoBehaviour
 
         ExitPlacementMode();
     }
-    private void EnterPlacementMode()
+    public void EnterPlacementMode()
     {
         if (_inplacementMode)
         {
             return;
         }
-
+        if(GameManager.instance.isPaused && GameManager.instance.activeMenu == GameManager.instance.BuilderMenu)
+        {
+            GameManager.instance.ToggleBuilderMenu();
+        }
         Quaternion rotation = Quaternion.Euler(0f, playerCamera.transform.eulerAngles.y, 0f);
         _previewObject = Instantiate(previewObjectPrefab, _currentPlacementPosition, rotation, transform);
         _inplacementMode = true;    

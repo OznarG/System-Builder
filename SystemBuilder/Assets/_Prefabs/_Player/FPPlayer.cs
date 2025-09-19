@@ -8,16 +8,13 @@ public class FPPlayer : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] PlayerController playerController;
+    public HUDsystem playerHUD;
 
     [Header("Weapons")]
     public GameObject currentWeapon;
     public Collider currentCollider;
     public GameObject[] playerWeapons;
     public Collider[] weaponsColliders;
-    public Image equipOneImage;
-    public Image equipTwoImage;
-    public Slot equipSlotOne;
-    public Slot equipSlotTwo;
     public int weaponIndex;
 
     [Header("Inventories")]
@@ -33,8 +30,8 @@ public class FPPlayer : MonoBehaviour
     #region Inventory Method
     public void UpdateEquipSlot()
     {
-        equipOneImage.sprite = equipSlotOne.GetItemIcon();
-        equipTwoImage.sprite = equipSlotTwo.GetItemIcon();
+        playerHUD.equipOneImage.sprite = playerHUD.equipSlotOne.GetItemIcon();
+        playerHUD.equipTwoImage.sprite = playerHUD.equipSlotTwo.GetItemIcon();
     }
     #endregion
     #region Input Functions    

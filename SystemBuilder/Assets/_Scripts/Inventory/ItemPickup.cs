@@ -11,6 +11,7 @@ public class ItemPickUp : MonoBehaviour, Iinteract
     {
         GameManager.instance.player.playerHUD.buttonsInfo[0].text = "E: To Pick";
         GameManager.instance.player.playerHUD.buttonsInfoBG[0].gameObject.SetActive(true);
+
     }
     public void HideActionText()
     {
@@ -18,6 +19,7 @@ public class ItemPickUp : MonoBehaviour, Iinteract
         GameManager.instance.player.playerHUD.buttonsInfoBG[1].gameObject.SetActive(false);
         GameManager.instance.player.playerHUD.buttonsInfoBG[2].gameObject.SetActive(false);
         GameManager.instance.player.playerHUD.buttonsInfoBG[3].gameObject.SetActive(false);
+
     }
     public void Interact()
     {
@@ -26,7 +28,7 @@ public class ItemPickUp : MonoBehaviour, Iinteract
             //AudioManager.instance.PlaySFX(AudioManager.instance.pickUp);
             Debug.Log("Added Item Function");
             Destroy(gameObject);
-            
+            HideActionText();
         }
     }
     #endregion

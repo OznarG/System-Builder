@@ -49,7 +49,6 @@ public class FPPlayer : MonoBehaviour
     void OnMove(InputValue value)
     {
         playerController.MoveInput = value.Get<Vector2>();
-        Debug.Log("hi");
     }
     void OnLook(InputValue value)
     {

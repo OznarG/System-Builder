@@ -233,14 +233,18 @@ public class PlayerController : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, distanceInteract, layerMaskInteractable))
         {
-            interactableObject = hit.transform.gameObject;
-            previousSelected = interactableObject;
-            interactableObject.GetComponent<Outline>().OutlineWidth = 8;
-            Iinteract interact = interactableObject.GetComponent<Iinteract>();
-            if (interact != null)
+            if(interactableObject != hit.transform.gameObject)
             {
-                interact.ActionText();
+                interactableObject = hit.transform.gameObject;
+                previousSelected = interactableObject;
+                interactableObject.GetComponent<Outline>().OutlineWidth = 8;
+                Iinteract interact = interactableObject.GetComponent<Iinteract>();
+                if (interact != null)
+                {
+                    interact.ActionText();
+                }
             }
+
         }
         else
         {

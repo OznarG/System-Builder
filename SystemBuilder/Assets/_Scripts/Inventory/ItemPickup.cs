@@ -10,7 +10,7 @@ public class ItemPickUp : MonoBehaviour, Iinteract
     public void ActionText()
     {
         GameManager.instance.player.playerHUD.buttonsInfo[0].text = "E: To Pick";
-
+        GameManager.instance.player.playerHUD.buttonsInfoBG[0].gameObject.SetActive(true);
     }
     public void HideActionText()
     {

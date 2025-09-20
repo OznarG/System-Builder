@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1090744133523018293
+--- !u!1001 &2201813823381840163
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,20 +10,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3699079745832495409, guid: 122ea33873dc32e4a846e7e014eab607, type: 3}
       propertyPath: m_Name
-      value: FirePlaceBuild
+      value: FirePlaceFinal
       objectReference: {fileID: 0}
-    - target: {fileID: 3699079745832495409, guid: 122ea33873dc32e4a846e7e014eab607, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7824371898732131181, guid: 122ea33873dc32e4a846e7e014eab607, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8002732410217728930, guid: 122ea33873dc32e4a846e7e014eab607, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: fb767851e3a510346aabe2b377ca33b2, type: 2}
     - target: {fileID: 8120035648967580658, guid: 122ea33873dc32e4a846e7e014eab607, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -70,24 +58,24 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3699079745832495409, guid: 122ea33873dc32e4a846e7e014eab607, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5184714823922734263}
+      addedObject: {fileID: -6522869818124747336}
   m_SourcePrefab: {fileID: 100100000, guid: 122ea33873dc32e4a846e7e014eab607, type: 3}
---- !u!1 &4356915346847513348 stripped
+--- !u!1 &3304427645332621330 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3699079745832495409, guid: 122ea33873dc32e4a846e7e014eab607, type: 3}
-  m_PrefabInstance: {fileID: 1090744133523018293}
+  m_PrefabInstance: {fileID: 2201813823381840163}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5184714823922734263
+--- !u!114 &-6522869818124747336
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4356915346847513348}
+  m_GameObject: {fileID: 3304427645332621330}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfdd831d7fb81c44f91d089297ebec8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnObj: {fileID: 3304427645332621330, guid: 7b4fbb951fcb91545821a482acd8e998, type: 3}
-  builderMode: 1
+  spawnObj: {fileID: 0}
+  builderMode: 0

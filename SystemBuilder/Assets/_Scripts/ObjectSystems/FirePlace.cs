@@ -3,7 +3,7 @@ using UnityEngine;
 public class FirePlace : MonoBehaviour, Iinteract
 {
     [SerializeField] GameObject spawnObj;
-    [SerializeField] bool builderMode;
+    public bool builderMode = true;
 
     public void ActionText()
     {
@@ -22,14 +22,16 @@ public class FirePlace : MonoBehaviour, Iinteract
     public void HideActionText()
     {
         GameManager.instance.player.playerHUD.buttonsInfoBG[0].gameObject.SetActive(false);
+        Debug.Log("Supposed To Hide Text");
     }
 
     public void Interact()
     {
         if (builderMode)
         {
-
-            Instantiate(spawnObj, gameObject.transform.position, transform.rotation, transform);
+            Debug.Log("Spawned");
+            Instantiate(spawnObj, gameObject.transform.position, transform.rotation);
+            Destroy(gameObject);
         }
         else
         {
@@ -40,7 +42,7 @@ public class FirePlace : MonoBehaviour, Iinteract
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Debug.Log("Spawn " + builderMode);
     }
 
     // Update is called once per frame

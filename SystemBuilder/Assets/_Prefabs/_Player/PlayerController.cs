@@ -237,7 +237,11 @@ public class PlayerController : MonoBehaviour
             {
                 interactableObject = hit.transform.gameObject;
                 previousSelected = interactableObject;
-                interactableObject.GetComponent<Outline>().OutlineWidth = 8;
+                Outline outline = interactableObject.GetComponent<Outline>();
+                if (outline != null)
+                {
+                    outline.OutlineWidth = 8;
+                }
                 Iinteract interact = interactableObject.GetComponent<Iinteract>();
                 if (interact != null)
                 {
@@ -250,7 +254,11 @@ public class PlayerController : MonoBehaviour
         {
             if(previousSelected != null)
             {
-                previousSelected.GetComponent<Outline>().OutlineWidth = 0;
+                Outline outline = interactableObject.GetComponent<Outline>();
+                if (outline != null)
+                {
+                    outline.OutlineWidth = 8;
+                }
                 Iinteract interact = interactableObject.GetComponent<Iinteract>();
                 if (interact != null)
                 {

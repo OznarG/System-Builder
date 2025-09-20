@@ -99,7 +99,7 @@ public class ObjectPlacer : MonoBehaviour
             return;
         }
         Quaternion rotation = Quaternion.Euler(0f, playerCamera.transform.eulerAngles.y, 0f);
-        Instantiate(placeableObjectPrefab, _currentPlacementPosition, rotation, transform);
+        Instantiate(placeableObjectPrefab, _currentPlacementPosition, rotation);
 
         ExitPlacementMode();
     }
@@ -114,7 +114,7 @@ public class ObjectPlacer : MonoBehaviour
             GameManager.instance.ToggleBuilderMenu();
         }
         Quaternion rotation = Quaternion.Euler(0f, playerCamera.transform.eulerAngles.y, 0f);
-        _previewObject = Instantiate(previewObjectPrefab, _currentPlacementPosition, rotation, transform);
+        _previewObject = Instantiate(previewObjectPrefab, _currentPlacementPosition, rotation);
         _inplacementMode = true;    
     }
     
